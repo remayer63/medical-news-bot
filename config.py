@@ -7,8 +7,16 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ==================== CREDENCIAIS ====================
+
+# Carrega credenciais (funciona local e no GitHub Actions)
 INSTAGRAM_USERNAME = os.getenv('INSTAGRAM_USERNAME')
 INSTAGRAM_PASSWORD = os.getenv('INSTAGRAM_PASSWORD')
+
+# Validação
+if not INSTAGRAM_USERNAME or not INSTAGRAM_PASSWORD:
+    print("⚠️  AVISO: Credenciais não encontradas!")
+    print(f"   USERNAME: {'OK' if INSTAGRAM_USERNAME else 'FALTANDO'}")
+    print(f"   PASSWORD: {'OK' if INSTAGRAM_PASSWORD else 'FALTANDO'}")
 
 # ==================== FONTES DE NOTÍCIAS (RSS FEEDS) ====================
 NEWS_SOURCES = {
